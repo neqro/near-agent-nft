@@ -7,7 +7,7 @@ That account has **no keys**; it runs a tiny wallet contract that obeys only who
 Sell the NFT and the wallet, its NEAR and its tokens move with it. An AI agent can spend from the wallet,
 but only inside a guard policy (daily limit, allowed contracts/methods) and only after an off-chain rug/honeypot check.
 
-> Status: work in progress (day 1 of 5). See `docs/PLAN.md`.
+> Status: work in progress (day 2 of 5). Wallet-follows-NFT demo works on testnet: see `docs/TESTNET.md`.
 
 ## How control passes on transfer
 See [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md).
