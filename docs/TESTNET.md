@@ -16,3 +16,15 @@
 | Bob withdraw_ft 0.29875 wNEAR | ok, Bob balance 0.29875 wNEAR | `8CaXy1dg4XxpyRHQEXWe2Vdk2Stp82kvvv3vVLXFR8B` |
 
 Explorer: https://testnet.nearblocks.io/txns/<tx>
+
+## Day 3 (2026-11-05): guard policy
+- Wallet v2 global hash `65z5Ucf53V1Wt2hakfLzWiUhFMhD2ULU9PAzbSYaVfnX` (159 KB) — deploy tx `BeBhKrVtCz1898Tqn1wrqXKpSTZ1NA8XyjBqrBR95scy`; `set_wallet_code` tx `ApR6bAjjEzKEW7REcqwFo1dCR7K7Fyks9xvJXQGntYpt` (bot-1 keeps v1).
+- Agent account `agent-11050702.alice-agnt-11040702.testnet`; token `bot-2` (`scripts/day3_guard_demo.sh`):
+
+| Step | Result | Tx |
+|---|---|---|
+| Owner set_agent (only wrap.testnet.near_deposit, 0.5 NEAR/day) | ok | `AMQ4s6KNnWQZd4AZm1rFftFWufmTgfidaPbsAwryj7DY` |
+| Agent wraps 0.2 NEAR | ok | `CS333Ab6QUTcsF8eGCBCkRC2RVt67YSJ4ESxFKr5uaYi` |
+| Agent calls honeypot.testnet.swap | **REJECTED** not in allowlist | `7n8jcrZMnCgeLrdwckrRZpHJXDsyXhPihyq43agXFU6D` |
+| Agent wraps 0.4 more (over daily limit) | **REJECTED** | `3zxfFMYfRXGhdevuv8GPUFdJmLq6Ln6MP8wfJJRAXYs7` |
+| NFT sold to Bob, agent retries | **REJECTED** (policy of previous owner) | `2hbnVau4hr2GuUyLCmXrddvxau1365uGQ8onCtKH66NH` |
