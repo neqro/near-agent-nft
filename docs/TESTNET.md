@@ -28,3 +28,12 @@ Explorer: https://testnet.nearblocks.io/txns/<tx>
 | Agent calls honeypot.testnet.swap | **REJECTED** not in allowlist | `7n8jcrZMnCgeLrdwckrRZpHJXDsyXhPihyq43agXFU6D` |
 | Agent wraps 0.4 more (over daily limit) | **REJECTED** | `3zxfFMYfRXGhdevuv8GPUFdJmLq6Ln6MP8wfJJRAXYs7` |
 | NFT sold to Bob, agent retries | **REJECTED** (policy of previous owner) | `2hbnVau4hr2GuUyLCmXrddvxau1365uGQ8onCtKH66NH` |
+
+## Day 4 (2026-11-06): off-chain risk check + agent (`scripts/risk_check.py`, `scripts/agent.sh`)
+Wallet bot-2 (now owned by Bob). Agent = agent-11050702.alice-agnt-11040702.testnet.
+| Step | Result | Tx |
+|---|---|---|
+| Agent -> honeypot.testnet.swap | **REFUSED off-chain** (no code, risk 140), no tx sent | - |
+| Agent -> wrap.testnet.near_deposit with old owner's policy | **REJECTED** no policy (policy reset on owner change) | `44gsPoAznfG3sgJ8HQpKVUzjdutqSYVpJyR2LGJG2zA2` |
+| Bob (new owner) set_agent | ok | `HCZqgfSumghQnC2J8iQ4LewMUA6thcLoHhU2htgtV7CP` |
+| Agent -> wrap.testnet.near_deposit 0.1 NEAR (risk 40, passes) | ok | `MhsPVURo8ghCKBtHCmqCmKWhhvB3mdPbm3NgoWnebN6` |
