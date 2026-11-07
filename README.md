@@ -28,7 +28,7 @@ Needs `near` CLI, `python3`. Collection: `agentnft-11040702.testnet`. Logged tx 
    **See:** old owner's `withdraw_near` is REJECTED, new owner's succeeds; the balance moved with the NFT.
 2. **Do:** `bash scripts/day3_guard_demo.sh` (owner sets agent policy: only `wrap.testnet.near_deposit`, 0.5 NEAR/day).
    **See:** agent wrap passes; `honeypot.testnet.swap` is REJECTED (not in allowlist); a call over the daily limit is REJECTED; after the NFT is sold the old policy no longer works.
-3. **Do:** `bash scripts/agent.sh <token-id> <target> <method>` (runs `scripts/risk_check.py` first).
+3. **Do:** `bash scripts/agent.sh <agent> <wallet> <target> <method> <args-json> <deposit-yocto>` (runs `scripts/risk_check.py` first).
    **See:** `honeypot.testnet` is REFUSED off-chain (no code, risk 140, no tx sent); `wrap.testnet.near_deposit` (risk 40) goes through.
 4. **Do:** open `https://testnet.nearblocks.io/txns/<tx>` for any tx in `docs/TESTNET.md`.
    **See:** the same results on-chain.
