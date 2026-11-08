@@ -9,6 +9,8 @@ but only inside a guard policy (daily limit, allowed contracts/methods) and only
 
 > Status: all 5 days done. Everything below ran on NEAR testnet; tx ids in `docs/TESTNET.md`.
 
+> Demo video ([X post](https://x.com/neqro_61/status/2119053192746942910)): a terminal replay of the real testnet runs logged in `docs/TESTNET.md`, not a live screen recording. Run the scripts below to reproduce it yourself.
+
 ## How control passes on transfer
 See [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md).
 
